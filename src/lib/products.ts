@@ -76,14 +76,6 @@ export const products = [
     age: "+12 months",
     image: "sinan-3.jfif",
   },
-  {
-    name: "Labib",
-    category: "cerial",
-    description: "Labib Instant Cerial",
-    age: "+4 months",
-    image: "labib-collection.jfif",
-    action: "Coming Soon",
-  },
 ];
 
 export type Brand = {
