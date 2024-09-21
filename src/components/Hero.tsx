@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 const Hero = () => {
   return (
     <div
-      className="relative bg-cover bg-no-repeat bg-center h-[calc(90vh)]"
+      className="relative -top-24 bg-cover bg-no-repeat bg-center h-[calc(100vh)]"
       style={{ backgroundImage: "url('cover.png')" }}
     >
       <div className="container mx-auto h-full flex items-center justify-between px-4 md:px-8">

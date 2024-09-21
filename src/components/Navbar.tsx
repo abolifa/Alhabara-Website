@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils";
 import {
   Cloud,
   CreditCard,
@@ -11,13 +10,11 @@ import {
   MessageSquare,
   Plus,
   PlusCircle,
-  Search,
   Settings,
   User,
   UserPlus,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Input } from "./ui/input";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,45 +30,47 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      if (scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    console.log("Scroll event added");
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      console.log("Scroll event removed");
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log("isScrolled:", isScrolled);
+  }, [isScrolled]);
+
   return (
-    <motion.div
-      className="w-full flex items-center justify-between px-10 lg:px-20 h-20 border-b shadow-lg"
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+    <div
+      className={cn(
+        "w-full sticky bg-transparent top-0 z-50 flex items-center justify-between px-10 lg:px-20 h-24"
+      )}
     >
-      <Link to={"/"}>
-        <motion.img
-          src="/logo/logo.png"
-          alt="logo"
-          className={cn("transition-all ease-in-out duration-300 h-14")}
-          whileHover={{ scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-        />
-      </Link>
-
-      <div className="hidden w-full max-w-lg md:block relative">
-        <Input
-          placeholder="Search..."
-          className="w-full rounded-full text-xs px-9"
-        />
-        <Search className="w-4 h-4 absolute top-3 left-3" />
-      </div>
-
       <div className="flex items-start justify-start gap-5">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <motion.div
-              whileHover={{ rotate: 90 }}
-              transition={{ duration: 0.4 }}
-            >
-              <Button variant="outline" size={"sm"}>
-                <MenuIcon className="w-5 h-5" />
+            <div>
+              <Button variant="ghost" size={"sm"}>
+                <MenuIcon className="w-8 h-8" />
               </Button>
-            </motion.div>
+            </div>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56">
             <DropdownMenuLabel>Our Content</DropdownMenuLabel>
@@ -151,7 +150,20 @@ const Navbar = () => {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-    </motion.div>
+
+      <Link to={"/"}>
+        <img
+          src="/logo/logo.png"
+          alt="logo"
+          className={cn(
+            "transition-all ease-in-out duration-500",
+            isScrolled ? "h-16" : "h-28 mt-14"
+          )}
+        />
+      </Link>
+
+      <User className="w-8 h-8" />
+    </div>
   );
 };
 
