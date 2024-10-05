@@ -20,34 +20,26 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  to="/products/formula"
+                  to="/brands/3"
                   className="hover:text-primary transition-colors"
                 >
-                  Baby Formula
+                  Sinan
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/products/meals"
+                  to="/brands/5"
                   className="hover:text-primary transition-colors"
                 >
-                  Instant Baby Meals
+                  Jmool
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/products/organic"
+                  to="/brands/2"
                   className="hover:text-primary transition-colors"
                 >
-                  Organic Options
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/products/toddler"
-                  className="hover:text-primary transition-colors"
-                >
-                  Toddler Nutrition
+                  Herolac
                 </Link>
               </li>
             </ul>
@@ -120,24 +112,6 @@ const Footer = () => {
                 <span className="sr-only">Twitter</span>
               </a>
             </div>
-            <p className="text-sm">
-              Subscribe to our newsletter for the latest updates and exclusive
-              offers.
-            </p>
-            <form className="mt-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-3 py-2 text-sm text-foreground bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                required
-              />
-              <button
-                type="submit"
-                className="mt-2 w-full bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
           </div>
         </div>
         <div className="border-t border-muted-foreground/20 mt-8 pt-8 text-center text-sm">

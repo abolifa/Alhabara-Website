@@ -3,8 +3,9 @@ import { products } from "@/lib/products";
 import ProductCard from "./ProductCard";
 import { motion, useInView } from "framer-motion"; // Import Framer Motion and useInView
 
-interface ProductsGridProps {
-  category?: string; // optional category prop
+interface ProductFilterProps {
+  category?: string; // Optional category prop
+  brand?: string; // Optional brand prop
 }
 
 // Animation variants for product cards
@@ -21,14 +22,16 @@ const cardVariants = {
   }),
 };
 
-const ProductsGrid: React.FC<ProductsGridProps> = ({ category }) => {
+const ProductFilter: React.FC<ProductFilterProps> = ({ category, brand }) => {
   const ref = useRef(null); // Create a ref for the grid
   const isInView = useInView(ref, { once: true }); // Trigger animation once when in view
 
-  // Filter products if a category is provided, otherwise display all products
-  const filteredProducts = category
-    ? products.filter((item) => item.category === category)
-    : products;
+  // Filter products based on category and brand
+  const filteredProducts = products.filter((item) => {
+    const isCategoryMatch = category ? item.category === category : true;
+    const isBrandMatch = brand ? item.name === brand : true;
+    return isCategoryMatch && isBrandMatch; // Return products that match both criteria
+  });
 
   return (
     <motion.div
@@ -53,4 +56,4 @@ const ProductsGrid: React.FC<ProductsGridProps> = ({ category }) => {
   );
 };
 
-export default ProductsGrid;
+export default ProductFilter;

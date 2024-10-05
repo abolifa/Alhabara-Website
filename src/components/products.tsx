@@ -3,7 +3,10 @@ import ProductsGrid from "./ProductsGrid";
 
 const Products = () => {
   return (
-    <div className="container mx-auto space-y-5 flex flex-col items-center py-10">
+    <div
+      className="container mx-auto space-y-5 flex flex-col items-center py-10"
+      id="products"
+    >
       <h1 className="text-6xl font-black text-blue-900">Our Products</h1>
       <Tabs defaultValue="all" className="w-full text-center">
         <TabsList className="bg-blue-900 text-white w-96 gap-10">

@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 50 }, // Hidden below and faded out
@@ -17,6 +18,7 @@ const cardVariants = {
 const Values = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true }); // Trigger animation once when in view
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -24,12 +26,12 @@ const Values = () => {
       <section className="py-32 bg-gray-100" ref={ref}>
         <div className="container mx-auto text-center">
           <motion.h2
-            className="text-6xl font-extrabold text-blue-900 mb-6"
+            className="text-6xl font-extrabold text-blue-900 mb-10"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            Our Values
+            {t("Our Values")}
           </motion.h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {/* Integrity */}
@@ -55,7 +57,9 @@ const Values = () => {
                     }
                     alt={value}
                   />
-                  <h3 className="text-xl font-bold text-gray-800">{value}</h3>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    {t(value)}
+                  </h3>
                   <p className="mt-2 text-gray-600">
                     {value === "Integrity"
                       ? "We believe in honesty, trust, and transparency in everything we do."

@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { motion, useInView } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Product } from "@/lib/products";
+import { useTranslation } from "react-i18next";
 
 interface ProductCardProps {
   product: Product;
@@ -21,6 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <motion.div
@@ -37,7 +39,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       onClick={() => navigate(`/products/${product.id}`)}
     >
       <CardHeader>
-        <CardTitle>{product.name}</CardTitle>
+        <CardTitle>{t(product.name)}</CardTitle>
         <CardDescription>{product.description}</CardDescription>
       </CardHeader>
 
@@ -46,7 +48,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       >
         {/* Animate image with Framer Motion */}
         <motion.img
-          src={product.image}
+          src={`/${product.image}`}
           className="w-full h-full object-contain"
           whileHover={!product.action ? { scale: 1.1 } : undefined}
           transition={{ duration: 0.3 }}

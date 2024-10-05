@@ -22,7 +22,7 @@ const Brands: React.FC = () => {
   };
 
   return (
-    <div className="py-32" ref={ref}>
+    <div className="py-32" ref={ref} id="brands">
       {" "}
       {/* Attach ref to the component */}
       <div className="container mx-auto text-center">
@@ -42,7 +42,7 @@ const Brands: React.FC = () => {
               key={brand.name}
               custom={index}
               variants={cardVariants}
-              className="group relative p-4 overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              className="group relative p-4 overflow-hidden cursor-pointer bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
               onClick={() => navigate(`/brands/${brand.id}`)} // Navigate to Brand Page
             >
               {/* Logo Image */}

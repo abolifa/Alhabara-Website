@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
+import { useTranslation } from "react-i18next";
 
 const Hero = () => {
+  const { t } = useTranslation();
   return (
     <div
       className="relative -top-24 bg-cover bg-no-repeat bg-center h-[calc(100vh)]"
       style={{ backgroundImage: "url('cover.png')" }}
+      id="hero"
     >
       <div className="container mx-auto h-full flex items-center justify-between px-4 md:px-8">
         {/* Text Content */}
@@ -16,7 +19,7 @@ const Hero = () => {
           transition={{ duration: 1 }}
         >
           <h1 className="text-2xl md:text-3xl lg:text-6xl font-bold text-blue-900">
-            ALHABARA PREMIUM
+            {t("ALHABARA PREMIUM")}
           </h1>
           <p className="text-sm md:text-md lg:text-lg text-muted-foreground">
             Gain an overview of our wide range of high-quality premium products

@@ -1,3 +1,4 @@
+import ProductFilter from "@/components/productsFilter";
 import { Card, CardContent } from "@/components/ui/card";
 import { brands } from "@/lib/products";
 import { Droplet, Heart, ShieldCheck, Star } from "lucide-react";
@@ -62,6 +63,14 @@ export default function SingleBrand() {
             </CardContent>
           </Card>
         </div>
+      </div>
+
+      {/* no images appears */}
+      <h1 className="text-3xl font-bold text-blue-900 text-center my-5 py-5">
+        Products
+      </h1>
+      <div className="p-10 container mx-auto">
+        <ProductFilter brand={brand?.label} />
       </div>
 
       <div className="w-full my-20 bg-slate-50 flex flex-col items-center justify-center px-10">
