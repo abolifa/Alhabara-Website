@@ -1,10 +1,12 @@
 import { Brand, brands } from "@/lib/products";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion"; // Import useInView and motion
+import { useNavigate } from "react-router-dom";
 
 const Brands: React.FC = () => {
   const ref = useRef(null); // Create a reference for the Brands component
   const isInView = useInView(ref, { once: true }); // Trigger animation once when in view
+  const navigate = useNavigate();
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 }, // Hidden state
@@ -41,6 +43,7 @@ const Brands: React.FC = () => {
               custom={index}
               variants={cardVariants}
               className="group relative p-4 overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={() => navigate(`/brands/${brand.id}`)} // Navigate to Brand Page
             >
               {/* Logo Image */}
               <motion.img

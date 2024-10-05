@@ -6,8 +6,6 @@ import {
   Dumbbell,
   Leaf,
   LucideIcon,
-  Power,
-  PowerCircle,
   ShieldCheckIcon,
 } from "lucide-react";
 
@@ -332,6 +330,7 @@ export const products = [
 ];
 
 export type Brand = {
+  id: string;
   name: string;
   logo: string;
   new: boolean;
@@ -339,42 +338,58 @@ export type Brand = {
 
 export const brands = [
   {
-    name: "Labib",
+    id: "1",
+    label: "Labib",
+    name: "Labib Instant Meals",
     logo: "brands/labib.jpg",
     new: false,
   },
   {
-    name: "Herolac",
+    id: "2",
+    label: "Herolac",
+    name: "Herolac Instant Meals",
     logo: "brands/herolac.jpg",
     new: false,
   },
   {
+    id: "3",
+    label: "Sinan",
     name: "Sinan-Milk",
     logo: "brands/snan-heart.jpg",
     new: false,
   },
   {
+    id: "4",
+    label: "Sinan",
     name: "Sinan-Formula",
     logo: "brands/snan.jpg",
     new: false,
   },
   {
-    name: "Jmool",
+    id: "5",
+    label: "Jmool",
+    name: "Jmool Camels Milk",
     logo: "brands/jmool.jpg",
     new: false,
   },
   {
-    name: "Prime",
+    id: "6",
+    label: "Primo",
+    name: "Primo Instant Baby Formula",
     logo: "brands/prime.jpg",
     new: true,
   },
   {
-    name: "Bambino",
+    id: "7",
+    label: "Bambino",
+    name: "Bambino Baby Diapers",
     logo: "brands/bambino.jpg",
     new: true,
   },
   {
-    name: "LuLu",
+    id: "8",
+    label: "LuLu",
+    name: "LuLu Baby Diapers",
     logo: "brands/lulu.jpg",
     new: true,
   },

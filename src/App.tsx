@@ -3,6 +3,7 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import AboutUs from "./pages/About";
 import SingleProduct from "./pages/SingleProduct";
+import SingleBrand from "./pages/singleBrand";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/products/:id" element={<SingleProduct />} />
+        <Route path="/brands/:id" element={<SingleBrand />} />
       </Route>
     </Routes>
   );

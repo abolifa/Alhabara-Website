@@ -4,16 +4,16 @@ import { Heart, Shield, Leaf } from "lucide-react";
 
 export default function AboutUs() {
   return (
-    <section className="py-32 bg-slate-50">
+    <section className="py-32">
       <div className="container mx-auto px-4">
-        <h2 className="text-6xl font-bold text-center mb-12 text-blue-900">
+        <h2 className="text-6xl font-bold text-center mb-20 text-blue-900">
           About Us
         </h2>
         <div className="grid md:grid-cols-2 gap-8 items-start">
           <div className="space-y-6">
             <p className="text-lg text-gray-700">
-              At NurtureBaby, we're dedicated to providing the highest quality
-              infant nutrition. With over 50 years of experience, we combine
+              At Alhabara, we're dedicated to providing the highest quality
+              infant nutrition. With over 10 years of experience, we combine
               cutting-edge research with time-tested practices to create baby
               milk formulas that support healthy growth and development.
             </p>
@@ -38,10 +38,10 @@ export default function AboutUs() {
               </Card>
             </div>
             <p className="text-gray-700">
-              Our commitment to excellence ensures that every bottle of
-              NurtureBaby formula meets the highest standards of nutrition and
-              safety. We believe in transparency, sustainability, and putting
-              babies' needs first.
+              Our commitment to excellence ensures that every bottle of Alhabara
+              formula meets the highest standards of nutrition and safety. We
+              believe in transparency, sustainability, and putting babies' needs
+              first.
             </p>
             <Button className="w-full sm:w-auto">
               Learn More About Our Process
