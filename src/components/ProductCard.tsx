@@ -8,37 +8,33 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { motion, useInView } from "framer-motion";
-
-export type Product = {
-  name: string;
-  description: string;
-  category: string;
-  age: string;
-  image: string;
-  action?: string;
-};
+import { useNavigate } from "react-router-dom";
+import { Product } from "@/lib/products";
 
 interface ProductCardProps {
   product: Product;
   category: string | undefined;
+  color?: string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const ref = useRef(null); // Create a reference for the ProductCard
-  const isInView = useInView(ref, { once: true }); // Trigger animation once when in view
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const navigate = useNavigate();
 
   return (
     <motion.div
-      ref={ref} // Attach the ref to the component
+      ref={ref}
       className={cn(
         "cursor-pointer bg-stone-50 relative overflow-hidden",
         product.action ? "text-muted-foreground cursor-not-allowed" : null
       )}
-      initial={{ opacity: 0, y: 50 }} // Start hidden and below
-      animate={isInView ? { opacity: 1, y: 0 } : {}} // Only animate when in view
-      transition={{ duration: 0.4, ease: "easeOut" }} // Smooth transition
-      whileHover={!product.action ? { scale: 1.05 } : undefined} // Scale up on hover (if not disabled)
-      whileTap={!product.action ? { scale: 0.95 } : undefined} // Scale down on click (if not disabled)
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      whileHover={!product.action ? { scale: 1.05 } : undefined}
+      whileTap={!product.action ? { scale: 0.95 } : undefined}
+      onClick={() => navigate(`/products/${product.id}`)}
     >
       <CardHeader>
         <CardTitle>{product.name}</CardTitle>
@@ -52,8 +48,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <motion.img
           src={product.image}
           className="w-full h-full object-contain"
-          whileHover={!product.action ? { scale: 1.1 } : undefined} // Image zoom on hover (if not disabled)
-          transition={{ duration: 0.3 }} // Smooth transition for zoom
+          whileHover={!product.action ? { scale: 1.1 } : undefined}
+          transition={{ duration: 0.3 }}
         />
       </CardContent>
 

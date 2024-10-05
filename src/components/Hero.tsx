@@ -45,7 +45,7 @@ const Hero = () => {
 
       {/* Cloud Effect at the Bottom */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 z-50 w-screen"
+        className="absolute bottom-0 left-0 right-0 z-40 w-screen"
         initial={{ y: "100%" }} // Start off-screen at the bottom
         animate={{ y: "0%" }} // Animate upwards into view
         transition={{ duration: 1.5, ease: "easeInOut", delay: 1 }} // Custom easing and delay for a smooth effect
