@@ -6,6 +6,7 @@ import SingleProduct from "./pages/SingleProduct";
 import SingleBrand from "./pages/SingleBrand";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import "./i18n";
+import NutritionGuide from "./pages/NutritionGuide";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/products/:id" element={<SingleProduct />} />
         <Route path="/brands/:id" element={<SingleBrand />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/nutrition-guide" element={<NutritionGuide />} />
       </Route>
     </Routes>
   );

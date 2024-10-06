@@ -58,6 +58,20 @@ const LanguageSwitcher = () => {
           Arabic
           <img src="/lang/sa.png" className="w-8 h-8 object-contain" />
         </DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => changeLanguage("tr")}
+          className="flex items-center justify-between"
+        >
+          Turkish
+          <img src="/lang/tr.png" className="w-8 h-8 object-contain" />
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => changeLanguage("ne")}
+          className="flex items-center justify-between"
+        >
+          Dutch
+          <img src="/lang/ne.png" className="w-8 h-8 object-contain" />
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

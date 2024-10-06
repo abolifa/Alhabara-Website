@@ -5,12 +5,13 @@ import { useParams } from "react-router-dom";
 import { products } from "@/lib/products";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 export default function ProductPage() {
   const { id } = useParams();
   const product = products.find((product) => product.id === id);
+  const { t } = useTranslation();
 
-  console.log(product);
   return (
     <div className="relative container mx-auto px-4 py-24">
       <div className="grid md:grid-cols-2 gap-8">
@@ -25,9 +26,11 @@ export default function ProductPage() {
 
         {/* Product Details */}
         <div className="space-y-6">
-          <h1 className="text-5xl font-bold text-blue-900">{product?.name}</h1>
+          <h1 className="text-5xl font-bold text-blue-900">
+            {t(product?.name as any)}
+          </h1>
           <p className="text-md text-muted-foreground">
-            {product?.description}
+            {t(product?.description as any)}
           </p>
 
           <Badge className="bg-blue-900 px-3 py-2">{product?.age}</Badge>
@@ -35,9 +38,9 @@ export default function ProductPage() {
           {/* Key Features */}
           <div className="flex space-x-4">
             {product?.perks?.map((item) => (
-              <div key={item.label} className="flex items-center">
+              <div key={t(`${item.label}`)} className="flex items-center">
                 <item.icon className={cn("h-5 w-5 mr-2", item.color)} />
-                <span className="text-sm">{item?.label}</span>
+                <span className="text-sm">{t(item?.label)}</span>
               </div>
             ))}
           </div>
@@ -45,24 +48,18 @@ export default function ProductPage() {
           {/* Product Tabs */}
           <Tabs defaultValue="details" className="w-full">
             <TabsList className="bg-blue-900 text-white">
-              <TabsTrigger value="details">Product Details</TabsTrigger>
-              <TabsTrigger value="nutrition">Nutrition</TabsTrigger>
-              <TabsTrigger value="reviews">Reviews</TabsTrigger>
+              <TabsTrigger value="details">{t("Product Details")}</TabsTrigger>
+              <TabsTrigger value="nutrition">{t("Nutrition")}</TabsTrigger>
+              <TabsTrigger value="reviews">{t("Reviews")}</TabsTrigger>
             </TabsList>
             <TabsContent value="details" className="mt-4">
               <Card>
                 <CardContent className="pt-6">
                   <p>
-                    Premium Infant Formula is specially designed to provide
-                    complete nutrition for your baby. Our formula closely mimics
-                    breast milk composition and includes:
+                    {t(
+                      "Premium Infant Formula is specially designed to provide complete nutrition for your baby. Our formula closely mimics breast milk composition."
+                    )}
                   </p>
-                  <ul className="list-disc pl-5 mt-2 space-y-1">
-                    <li>Essential vitamins and minerals for healthy growth</li>
-                    <li>DHA and ARA for brain and eye development</li>
-                    <li>Prebiotics to support digestive health</li>
-                    <li>Easy-to-digest proteins</li>
-                  </ul>
                 </CardContent>
               </Card>
             </TabsContent>

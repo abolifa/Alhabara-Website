@@ -2,17 +2,21 @@ import ProductFilter from "@/components/productsFilter";
 import { Card, CardContent } from "@/components/ui/card";
 import { brands } from "@/lib/products";
 import { Droplet, Heart, ShieldCheck, Star } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
 export default function SingleBrand() {
   const { id } = useParams();
   const brand = brands.find((brand) => brand.id === id);
+  const { t } = useTranslation();
 
   return (
     <>
       <div className="w-full flex flex-col items-center justify-start gap-8 mt-10 py-10">
         <img src={`/${brand?.logo}`} className="w-96 object-contain" />
-        <h1 className="text-4xl font-bold text-blue-900">{brand?.name}</h1>
+        <h1 className="text-4xl font-bold text-blue-900">
+          {t(brand?.name as any)}
+        </h1>
         <p className="text-muted-foreground text-lg max-w-xl text-center">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
           voluptatem provident possimus placeat architecto autem tempora eveniet
@@ -22,7 +26,10 @@ export default function SingleBrand() {
 
       <div className="bg-blue-900 w-full h-full flex flex-col items-center justify-center py-20 text-white">
         <div className="flex flex-col items-center justify-center gap-5">
-          <h1 className="text-3xl font-bold">Why Choose {brand?.label}?</h1>
+          <h1 className="text-3xl font-bold">
+            {t("Why Choose")} {t(brand?.label as any)}
+            {t("?")}
+          </h1>
           <p className="text-md text-center max-w-md">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
             ipsa?
@@ -34,31 +41,38 @@ export default function SingleBrand() {
             <CardContent className="flex flex-col items-center space-y-4 p-6">
               <Heart className="w-12 h-12 text-primary" />
               <h3 className="text-2xl font-bold text-center">
-                Nutrient-Rich Formula
+                {t("Nutrient-Rich Formula")}
               </h3>
               <p className="text-center text-muted-foreground">
-                Packed with essential vitamins and minerals for optimal growth
-                and development.
+                {t(
+                  "Packed with essential vitamins and minerals for optimal growth and development."
+                )}
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="flex flex-col items-center space-y-4 p-6">
               <ShieldCheck className="w-12 h-12 text-primary" />
-              <h3 className="text-2xl font-bold text-center">Safe & Trusted</h3>
+              <h3 className="text-2xl font-bold text-center">
+                {t("Safe & Trusted")}
+              </h3>
               <p className="text-center text-muted-foreground">
-                Rigorously tested and approved by pediatricians for your baby's
-                safety.
+                {t(
+                  "Rigorously tested and approved by pediatricians for your baby's safety."
+                )}
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="flex flex-col items-center space-y-4 p-6">
               <Droplet className="w-12 h-12 text-primary" />
-              <h3 className="text-2xl font-bold text-center">Easy to Digest</h3>
+              <h3 className="text-2xl font-bold text-center">
+                {t("Easy to Digest")}
+              </h3>
               <p className="text-center text-muted-foreground">
-                Gentle on your baby's tummy, reducing discomfort and promoting
-                better sleep.
+                {t(
+                  "Gentle on your baby's tummy, reducing discomfort and promoting better sleep."
+                )}
               </p>
             </CardContent>
           </Card>
@@ -67,7 +81,7 @@ export default function SingleBrand() {
 
       {/* no images appears */}
       <h1 className="text-3xl font-bold text-blue-900 text-center my-5 py-5">
-        Products
+        {t("Products")}
       </h1>
       <div className="p-10 container mx-auto">
         <ProductFilter brand={brand?.label} />

@@ -22,11 +22,12 @@ const Hero = () => {
             {t("ALHABARA PREMIUM")}
           </h1>
           <p className="text-sm md:text-md lg:text-lg text-muted-foreground">
-            Gain an overview of our wide range of high-quality premium products
-            for babies, children, and expectant and breast-feeding mothers.
+            {t(
+              "Gain an overview of our wide range of high-quality premium products for babies, children, and expectant and breast-feeding mothers."
+            )}
           </p>
           <Button className="px-10 rounded-full bg-amber-400 text-black">
-            See more
+            {t("See more")}
           </Button>
         </motion.div>
 

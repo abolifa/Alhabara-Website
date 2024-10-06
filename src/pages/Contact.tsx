@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useTranslation } from "react-i18next";
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
@@ -20,6 +21,7 @@ const formSchema = z.object({
 });
 
 const Contact = () => {
+  const { t } = useTranslation();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -40,11 +42,12 @@ const Contact = () => {
     >
       <div className="border p-10 flex flex-col rounded-lg w-full max-w-2xl bg-muted shadow-lg">
         <h1 className="text-4xl font-bold text-center text-blue-900">
-          Contact Us
+          {t("Contact Us")}
         </h1>
         <p className="text-center text-gray-600 mt-2 mb-8">
-          We would love to hear from you! Please fill out this form and we will
-          get in touch with you shortly.
+          {t(
+            "We would love to hear from you! Please fill out this form and we will get in touch with you shortly."
+          )}
         </p>
         <Form {...form}>
           <form
@@ -56,12 +59,13 @@ const Contact = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-lg text-gray-700">Name</FormLabel>
+                  <FormLabel className="text-lg text-gray-700">
+                    {t("Name")}
+                  </FormLabel>
                   <FormControl>
                     <Input
                       {...field}
                       className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
-                      placeholder="Enter your name"
                     />
                   </FormControl>
                   <FormMessage />
@@ -73,13 +77,14 @@ const Contact = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-lg text-gray-700">Email</FormLabel>
+                  <FormLabel className="text-lg text-gray-700">
+                    {t("Email Address")}
+                  </FormLabel>
                   <FormControl>
                     <Input
                       {...field}
                       type="email"
                       className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
-                      placeholder="Enter your email"
                     />
                   </FormControl>
                   <FormMessage />
@@ -92,14 +97,13 @@ const Contact = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-lg text-gray-700">
-                    Message
+                    {t("Message")}
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       {...field}
                       rows={5}
                       className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
-                      placeholder="Write your message here..."
                     />
                   </FormControl>
                   <FormMessage />
@@ -110,7 +114,7 @@ const Contact = () => {
               type="submit"
               className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Send Message
+              {t("Send Message")}
             </Button>
           </form>
         </Form>

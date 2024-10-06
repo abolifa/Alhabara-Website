@@ -2,11 +2,13 @@ import { Brand, brands } from "@/lib/products";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion"; // Import useInView and motion
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Brands: React.FC = () => {
   const ref = useRef(null); // Create a reference for the Brands component
   const isInView = useInView(ref, { once: true }); // Trigger animation once when in view
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 }, // Hidden state
@@ -27,7 +29,7 @@ const Brands: React.FC = () => {
       {/* Attach ref to the component */}
       <div className="container mx-auto text-center">
         <h2 className="text-6xl font-extrabold text-blue-900 mb-10">
-          Our Brands
+          {t("Our Brands")}
         </h2>
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"

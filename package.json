@@ -1,8 +1,14 @@
 {
   "name": "alhabara",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "license": "MIT",
+  "author": {
+    "email": "abulifa@outlook.com",
+    "name": "Abulifa",
+    "url": "https://raven-rose.vercel.app"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

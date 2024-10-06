@@ -1,7 +1,9 @@
 import { Facebook, Instagram, Twitter } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <div className="relative w-full py-20 bg-muted h-full overflow-hidden">
       <div className="container mx-auto px-6">
@@ -11,19 +13,20 @@ const Footer = () => {
               <img src="/logo/logo.png" className="w-52 object-contain" />
             </Link>
             <p className="text-sm">
-              Nourishing babies with love and care since 2010. Alhabara - Your
-              trusted partner in infant nutrition.
+              {t(
+                "Nourishing babies with love and care since 2010. Alhabara - Your trusted partner in infant nutrition."
+              )}
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Our Products</h3>
+            <h3 className="text-lg font-semibold mb-4">{t("Our Products")}</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   to="/brands/3"
                   className="hover:text-primary transition-colors"
                 >
-                  Sinan
+                  {t("Sinan")}
                 </Link>
               </li>
               <li>
@@ -31,7 +34,7 @@ const Footer = () => {
                   to="/brands/5"
                   className="hover:text-primary transition-colors"
                 >
-                  Jmool
+                  {t("Jmool")}
                 </Link>
               </li>
               <li>
@@ -39,13 +42,13 @@ const Footer = () => {
                   to="/brands/2"
                   className="hover:text-primary transition-colors"
                 >
-                  Herolac
+                  {t("Herolac")}
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Useful Links</h3>
+            <h3 className="text-lg font-semibold mb-4">{t("Useful Links")}</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -82,7 +85,9 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              {t("Connect With Us")}
+            </h3>
             <div className="flex space-x-4 mb-4">
               <a
                 href="https://facebook.com/alhabara"
