@@ -4,6 +4,11 @@ import { useTranslation } from "react-i18next";
 
 const Hero = () => {
   const { t } = useTranslation();
+
+  function navigateToProduct() {
+    const id = document.getElementById("products");
+    id?.scrollIntoView({ behavior: "smooth" });
+  }
   return (
     <div
       className="relative -top-24 bg-cover bg-no-repeat bg-center h-[calc(100vh)]"
@@ -26,7 +31,10 @@ const Hero = () => {
               "Gain an overview of our wide range of high-quality premium products for babies, children, and expectant and breast-feeding mothers."
             )}
           </p>
-          <Button className="px-10 rounded-full bg-amber-400 text-black">
+          <Button
+            onClick={() => navigateToProduct()}
+            className="px-10 rounded-full bg-amber-400 text-black"
+          >
             {t("See more")}
           </Button>
         </motion.div>
